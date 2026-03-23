@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jessica C. Johnson — Marketing Leader</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --cream: #F7F4EF;
+  --ink: #1A1612;
+  --ink-mid: #4A433B;
+  --ink-light: #8C7F72;
+  --gold: #B8965A;
+  --gold-light: #D4B07A;
+  --gold-pale: #F0E4CC;
+  --rule: rgba(26,22,18,0.12);
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  background: var(--cream);
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* NAV */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem 3rem;
+  background: var(--cream);
+  border-bottom: 1px solid var(--rule);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.nav-name {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+}
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-mid);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--gold); }
+
+/* HERO */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 560px;
+}
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5rem 4rem 5rem 3rem;
+}
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.25rem;
+  font-weight: 500;
+  display: block;
+}
+.hero-name {
+  font-family: var(--serif);
+  font-size: clamp(3rem, 5vw, 5rem);
+  font-weight: 300;
+  line-height: 1.05;
+  margin-bottom: 0.4rem;
+}
+.hero-name em { font-style: italic; color: var(--gold); }
+.hero-role {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--ink-mid);
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+.hero-summary {
+  font-size: 14px;
+  color: var(--ink-mid);
+  max-width: 420px;
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+}
+.hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+.btn-primary {
+  display: inline-block;
+  padding: 0.7rem 1.75rem;
+  background: var(--ink);
+  color: var(--cream);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+.btn-primary:hover { background: var(--gold); }
+.btn-outline {
+  display: inline-block;
+  padding: 0.7rem 1.75rem;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 500;
+  transition: border-color 0.2s, color 0.2s;
+}
+.btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+.hero-right {
+  position: relative;
+  background: linear-gradient(135deg, var(--gold-pale) 0%, #E8DCC8 40%, #D4C5A9 100%);
+  overflow: hidden;
+  min-height: 400px;
+}
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(26,22,18,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26,22,18,0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+.hero-circle {
+  position: absolute;
+  top: 38%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 180px; height: 180px;
+  border: 1px solid rgba(184,150,90,0.35);
+  border-radius: 50%;
+}
+.hero-circle::after {
+  content: '';
+  position: absolute;
+  inset: 18px;
+  border: 1px solid rgba(184,150,90,0.2);
+  border-radius: 50%;
+}
+.hero-monogram {
+  position: absolute;
+  top: 38%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--serif);
+  font-size: 6rem;
+  font-weight: 300;
+  color: rgba(184,150,90,0.2);
+  letter-spacing: -0.05em;
+  user-select: none;
+  white-space: nowrap;
+}
+.hero-stats {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  background: rgba(26,22,18,0.88);
+}
+.stat-item {
+  padding: 1.5rem 1rem;
+  border-right: 1px solid rgba(255,255,255,0.08);
+  text-align: center;
+}
+.stat-item:last-child { border-right: none; }
+.stat-number {
+  font-family: var(--serif);
+  font-size: 2.2rem;
+  font-weight: 300;
+  color: var(--gold-light);
+  line-height: 1;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+.stat-label {
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+}
+
+/* SECTIONS */
+section { padding: 6rem 3rem; }
+.section-inner { max-width: 1100px; margin: 0 auto; }
+.section-header { margin-bottom: 3.5rem; }
+.section-title {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3.5vw, 2.75rem);
+  font-weight: 300;
+  line-height: 1.1;
+}
+.section-rule { width: 50px; height: 1px; background: var(--gold); margin-top: 1rem; }
+
+/* EXPERTISE */
+#expertise { background: var(--ink); }
+#expertise .eyebrow { color: var(--gold-light); }
+#expertise .section-title { color: var(--cream); }
+#expertise .section-rule { background: var(--gold-light); }
+.expertise-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: rgba(255,255,255,0.07);
+}
+.expertise-card {
+  background: rgba(255,255,255,0.03);
+  padding: 2.25rem 1.75rem;
+  transition: background 0.25s;
+}
+.expertise-card:hover { background: rgba(184,150,90,0.09); }
+.expertise-icon {
+  width: 32px; height: 32px;
+  border: 1px solid rgba(184,150,90,0.4);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 1.25rem;
+  color: var(--gold-light);
+  font-size: 14px;
+}
+.expertise-card h3 {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: var(--gold-light);
+  margin-bottom: 0.75rem;
+}
+.expertise-card p { font-size: 12.5px; color: rgba(247,244,239,0.5); line-height: 1.7; }
+.expertise-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 1.1rem; }
+.expertise-tag {
+  font-size: 10px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border: 1px solid rgba(184,150,90,0.25);
+  color: rgba(247,244,239,0.35);
+}
+
+/* IMPACT */
+#impact { background: var(--gold-pale); }
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: var(--gold);
+}
+.impact-item { background: var(--cream); padding: 2.75rem 2rem; text-align: center; }
+.impact-number {
+  font-family: var(--serif);
+  font-size: 3.5rem;
+  font-weight: 300;
+  color: var(--ink);
+  line-height: 1;
+  display: block;
+}
+.impact-suffix { font-family: var(--serif); font-size: 1.75rem; color: var(--gold); font-weight: 300; }
+.impact-label {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+  margin-top: 0.6rem;
+  display: block;
+  font-weight: 500;
+}
+.impact-context { font-size: 12px; color: var(--ink-light); margin-top: 0.5rem; font-style: italic; line-height: 1.55; }
+
+/* EXPERIENCE */
+#experience { background: var(--cream); }
+.experience-timeline { position: relative; padding-left: 2rem; }
+.experience-timeline::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 8px; bottom: 8px;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--gold), rgba(184,150,90,0.1));
+}
+.exp-item { position: relative; padding: 0 0 3rem 2.5rem; }
+.exp-item::before {
+  content: '';
+  position: absolute;
+  left: -2rem; top: 8px;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--gold);
+  border: 2px solid var(--cream);
+  box-shadow: 0 0 0 1px var(--gold);
+}
+.exp-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.3rem;
+  flex-wrap: wrap;
+}
+.exp-role { font-family: var(--serif); font-size: 1.3rem; font-weight: 400; color: var(--ink); }
+.exp-period {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  white-space: nowrap;
+  padding-top: 4px;
+  font-weight: 500;
+}
+.exp-company { font-size: 13px; color: var(--ink-mid); margin-bottom: 1rem; font-weight: 500; }
+.exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+.exp-bullets li {
+  font-size: 13.5px;
+  color: var(--ink-mid);
+  line-height: 1.65;
+  padding-left: 1.2rem;
+  position: relative;
+}
+.exp-bullets li::before { content: '—'; position: absolute; left: 0; color: var(--gold); font-size: 12px; }
+.exp-highlight { font-weight: 500; color: var(--ink); }
+
+/* SKILLS */
+#skills { background: #F0EAE0; }
+.skills-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; }
+.skill-group { margin-bottom: 2.25rem; }
+.skill-group-label {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.9rem;
+  font-weight: 500;
+  display: block;
+}
+.skill-pills { display: flex; flex-wrap: wrap; gap: 7px; }
+.skill-pill {
+  font-size: 12px;
+  padding: 4px 13px;
+  background: var(--cream);
+  border: 1px solid rgba(184,150,90,0.3);
+  color: var(--ink-mid);
+  transition: all 0.2s;
+}
+.skill-pill:hover { background: var(--gold-pale); border-color: var(--gold); }
+.skill-pill.strong { background: var(--ink); color: var(--gold-light); border-color: var(--ink); }
+.edu-item { padding: 1.25rem 0; border-bottom: 1px solid var(--rule); }
+.edu-item:first-child { border-top: 1px solid var(--rule); }
+.edu-degree { font-family: var(--serif); font-size: 1.05rem; font-weight: 400; margin-bottom: 0.2rem; }
+.edu-school { font-size: 13px; color: var(--ink-mid); }
+.edu-detail { font-size: 12px; color: var(--gold); font-weight: 500; margin-top: 0.15rem; }
+.cert-list { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1.5rem; }
+.cert-item { display: flex; align-items: center; gap: 12px; font-size: 13px; color: var(--ink-mid); }
+.cert-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+
+/* CONTACT */
+#contact { background: var(--ink); }
+#contact .eyebrow { color: var(--gold-light); }
+#contact .section-title { color: var(--cream); }
+#contact .section-rule { background: var(--gold-light); }
+.contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
+.contact-intro { font-size: 14px; color: rgba(247,244,239,0.6); line-height: 1.8; margin-top: 1.5rem; }
+.contact-links { display: flex; flex-direction: column; }
+.contact-link {
+  display: block;
+  text-decoration: none;
+  color: rgba(247,244,239,0.7);
+  font-size: 13.5px;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  transition: color 0.2s;
+}
+.contact-link:hover { color: var(--gold-light); }
+.contact-link-label {
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+/* FOOTER */
+footer {
+  background: #0F0D0A;
+  padding: 1.5rem 3rem;
+  text-align: center;
+  font-size: 12px;
+  color: rgba(247,244,239,0.2);
+  letter-spacing: 0.05em;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { display: none; }
+  .hero { grid-template-columns: 1fr; }
+  .hero-left { padding: 4rem 1.5rem 2.5rem; }
+  .hero-right { min-height: 300px; }
+  .expertise-grid { grid-template-columns: 1fr 1fr; }
+  .impact-grid { grid-template-columns: 1fr; }
+  .skills-layout { grid-template-columns: 1fr; gap: 3rem; }
+  .contact-layout { grid-template-columns: 1fr; gap: 3rem; }
+  section { padding: 4.5rem 1.5rem; }
+  .experience-timeline { padding-left: 1.5rem; }
+  .exp-item { padding-left: 2rem; }
+}
+@media (max-width: 600px) {
+  .expertise-grid { grid-template-columns: 1fr; }
+  .hero-stats { position: static; grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-name">Jessica C. Johnson</a>
+  <ul class="nav-links">
+    <li><a href="#expertise">Expertise</a></li>
+    <li><a href="#impact">Impact</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="hero" id="home">
+  <div class="hero-left">
+    <span class="eyebrow">Available for new opportunities</span>
+    <h1 class="hero-name">Jessica<br><em>C. Johnson</em></h1>
+    <p class="hero-role">Senior Marketing Leader<br>Lifecycle · Growth · Experimentation · CRM</p>
+    <p class="hero-summary">I build data-informed strategies that make customer journeys smoother, campaigns smarter, and results more measurable — across B2B SaaS, franchise, and digital-first environments.</p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn-primary">Get in touch</a>
+      <a href="#experience" class="btn-outline">View experience</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-grid"></div>
+    <div class="hero-circle"></div>
+    <div class="hero-monogram">JCJ</div>
+    <div class="hero-stats">
+      <div class="stat-item"><span class="stat-number">10+</span><span class="stat-label">Years experience</span></div>
+      <div class="stat-item"><span class="stat-number">800K</span><span class="stat-label">Loyalty users managed</span></div>
+      <div class="stat-item"><span class="stat-number">4.0</span><span class="stat-label">MS GPA, Bus. Analytics</span></div>
+    </div>
+  </div>
+</div>
+
+<section id="expertise">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="eyebrow">What I do</span>
+      <h2 class="section-title">Areas of Expertise</h2>
+      <div class="section-rule"></div>
+    </div>
+    <div class="expertise-grid">
+      <div class="expertise-card">
+        <div class="expertise-icon">◈</div>
+        <h3>Lifecycle &amp; CRM</h3>
+        <p>Designing 30/60/90/180-day journeys that move customers from first touch to loyal advocate through behavioral targeting and segmentation.</p>
+        <div class="expertise-tags">
+          <span class="expertise-tag">Marketo</span><span class="expertise-tag">HubSpot</span><span class="expertise-tag">Salesforce</span><span class="expertise-tag">Segmentation</span>
+        </div>
+      </div>
+      <div class="expertise-card">
+        <div class="expertise-icon">◇</div>
+        <h3>Web Optimization</h3>
+        <p>Global CRO, SEO/AEO strategy, and A/B testing that connect web engagement to pipeline — from AEM component libraries to full microsites.</p>
+        <div class="expertise-tags">
+          <span class="expertise-tag">Adobe Target</span><span class="expertise-tag">AEM</span><span class="expertise-tag">SEO/AEO</span><span class="expertise-tag">A/B Testing</span>
+        </div>
+      </div>
+      <div class="expertise-card">
+        <div class="expertise-icon">◉</div>
+        <h3>Growth &amp; Analytics</h3>
+        <p>Building pipeline-to-revenue frameworks across Adobe Analytics, GA4, and Tableau — turning engagement data into actionable content and campaign strategy.</p>
+        <div class="expertise-tags">
+          <span class="expertise-tag">Adobe Analytics</span><span class="expertise-tag">GA4</span><span class="expertise-tag">Tableau</span><span class="expertise-tag">SQL</span>
+        </div>
+      </div>
+      <div class="expertise-card">
+        <div class="expertise-icon">◎</div>
+        <h3>Paid &amp; Multi-Channel</h3>
+        <p>End-to-end campaign management across paid search, social, programmatic, and email — with budgets exceeding $500K and ROI improvements of 20–35%.</p>
+        <div class="expertise-tags">
+          <span class="expertise-tag">Google Ads</span><span class="expertise-tag">LinkedIn Ads</span><span class="expertise-tag">Programmatic</span><span class="expertise-tag">Email</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="impact">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="eyebrow">By the numbers</span>
+      <h2 class="section-title">Measurable Impact</h2>
+      <div class="section-rule"></div>
+    </div>
+    <div class="impact-grid">
+      <div class="impact-item">
+        <span class="impact-number">30<span class="impact-suffix">%</span></span>
+        <span class="impact-label">Pipeline increase</span>
+        <p class="impact-context">Qualified pipeline lift via A/B testing, SEO/AEO, and AI-driven personalization</p>
+      </div>
+      <div class="impact-item">
+        <span class="impact-number">13<span class="impact-suffix">%</span></span>
+        <span class="impact-label">Loyalty revenue growth YoY</span>
+        <p class="impact-context">Annual loyalty revenue increase through segmentation and behavioral targeting</p>
+      </div>
+      <div class="impact-item">
+        <span class="impact-number">$400<span class="impact-suffix">K</span></span>
+        <span class="impact-label">Revenue per franchise location</span>
+        <p class="impact-context">Annual revenue driven per location through email, push, and paid media strategy</p>
+      </div>
+      <div class="impact-item">
+        <span class="impact-number">20<span class="impact-suffix">%</span></span>
+        <span class="impact-label">Conversion rate improvement</span>
+        <p class="impact-context">10–20% QoQ conversion rate gains via multivariate testing and personalization</p>
+      </div>
+      <div class="impact-item">
+        <span class="impact-number">35<span class="impact-suffix">%</span></span>
+        <span class="impact-label">Client ROI improvement</span>
+        <p class="impact-context">ROI gains through audience segmentation and data-driven bidding strategies</p>
+      </div>
+      <div class="impact-item">
+        <span class="impact-number">9<span class="impact-suffix">%</span></span>
+        <span class="impact-label">Customer spend lift</span>
+        <p class="impact-context">Loyalty vs. non-loyalty spend differential across 800K+ users</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="eyebrow">Career history</span>
+      <h2 class="section-title">Experience</h2>
+      <div class="section-rule"></div>
+    </div>
+    <div class="experience-timeline">
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <h3 class="exp-role">Founder &amp; Digital Marketing Director</h3>
+          <span class="exp-period">Nov 2019 – Present</span>
+        </div>
+        <p class="exp-company">Beyond Big Blue LLC · Remote</p>
+        <ul class="exp-bullets">
+          <li>Built <span class="exp-highlight">marketing technology stacks</span> that improved attribution visibility, campaign optimization, and digital customer acquisition for small business and franchise clients.</li>
+          <li>Led growth initiatives across paid media, SEO, lifecycle email, and web optimization for hospitality, retail, and restaurant brands.</li>
+          <li>Managed multi-channel campaigns spanning LinkedIn Ads, Google Ads, Performance Max, and programmatic platforms while supporting client roadmaps and reporting.</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <h3 class="exp-role">Web Optimization Manager</h3>
+          <span class="exp-period">Sep 2021 – Feb 2026</span>
+        </div>
+        <p class="exp-company">Dun &amp; Bradstreet · Remote</p>
+        <ul class="exp-bullets">
+          <li>Owned global web optimization, lead generation, and experimentation strategy across enterprise B2B SaaS business units, improving digital customer experience across gated and ungated journeys.</li>
+          <li>Led A/B and multivariate testing, SEO/AEO optimization, and AI-driven personalization programs that drove meaningful improvements in qualified pipeline and conversion rates QoQ.</li>
+          <li>Built a pipeline-to-revenue analytics framework across Adobe Analytics, GA4, and Tableau to connect web engagement with MQL/SQL velocity and guide content strategy.</li>
+          <li>Led launches across <span class="exp-highlight">U.S., Canada, U.K., and Ireland</span> in partnership with product, engineering, legal, and analytics teams.</li>
+          <li>Managed offshore development resources and scaled AEM webpages, microsites, component libraries, QA, and governance for faster global deployment.</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <h3 class="exp-role">Senior Digital Marketing Manager</h3>
+          <span class="exp-period">Jan 2018 – Aug 2024</span>
+        </div>
+        <p class="exp-company">Capriotti's Sandwich Shop &amp; Wing Zone · Remote</p>
+        <ul class="exp-bullets">
+          <li>Owned lifecycle marketing, online ordering, third-party delivery, POS enablement, and mobile loyalty strategy across a nationwide franchise network and <span class="exp-highlight">800K+ user rewards program</span>.</li>
+          <li>Increased annual loyalty revenue <span class="exp-highlight">13% YoY</span> and improved customer spend lift 9% versus non-loyalty segments through segmentation and behavioral targeting.</li>
+          <li>Designed 30/60/90/180-day lifecycle journeys to improve retention, repeat purchase frequency, and customer engagement.</li>
+          <li>Led email, push, and paid media strategy that drove up to <span class="exp-highlight">$400K in annual revenue per franchise location</span> and launched two websites and one mobile app.</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <h3 class="exp-role">Digital Marketing Manager</h3>
+          <span class="exp-period">Apr 2015 – Aug 2016</span>
+        </div>
+        <p class="exp-company">USA Today · Las Vegas, NV</p>
+        <ul class="exp-bullets">
+          <li>Managed multi-channel paid media campaigns across search, social, and programmatic display for SMB and regional clients with <span class="exp-highlight">annual budgets exceeding $500K</span>.</li>
+          <li>Improved client ROI 20–35% through audience segmentation, A/B testing, and data-driven bidding strategies.</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <h3 class="exp-role">Marketing Manager</h3>
+          <span class="exp-period">Mar 2015 – Jan 2018</span>
+        </div>
+        <p class="exp-company">Legacy Marketing · Las Vegas, NV</p>
+        <ul class="exp-bullets">
+          <li>Produced <span class="exp-highlight">20+ promotional events annually</span> supporting product launches and go-to-market initiatives that increased customer engagement and brand awareness.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="eyebrow">Tools &amp; knowledge</span>
+      <h2 class="section-title">Skills &amp; Credentials</h2>
+      <div class="section-rule"></div>
+    </div>
+    <div class="skills-layout">
+      <div>
+        <div class="skill-group">
+          <span class="skill-group-label">Strategy &amp; Leadership</span>
+          <div class="skill-pills">
+            <span class="skill-pill strong">Lifecycle Marketing</span>
+            <span class="skill-pill strong">Growth Marketing</span>
+            <span class="skill-pill strong">CRM Strategy</span>
+            <span class="skill-pill strong">Experimentation</span>
+            <span class="skill-pill">Cross-functional Leadership</span>
+            <span class="skill-pill">Stakeholder Management</span>
+            <span class="skill-pill">Strategic Planning</span>
+            <span class="skill-pill">Project Management</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <span class="skill-group-label">Digital Marketing</span>
+          <div class="skill-pills">
+            <span class="skill-pill strong">Web Optimization</span>
+            <span class="skill-pill strong">SEO / AEO</span>
+            <span class="skill-pill strong">A/B Testing</span>
+            <span class="skill-pill">Email Marketing</span>
+            <span class="skill-pill">Paid Media</span>
+            <span class="skill-pill">Programmatic</span>
+            <span class="skill-pill">Push Notifications</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <span class="skill-group-label">Analytics Platforms</span>
+          <div class="skill-pills">
+            <span class="skill-pill strong">Adobe Analytics</span>
+            <span class="skill-pill strong">GA4</span>
+            <span class="skill-pill strong">Tableau</span>
+            <span class="skill-pill">Power BI</span>
+            <span class="skill-pill">Salesforce</span>
+            <span class="skill-pill">Marketo</span>
+            <span class="skill-pill">HubSpot</span>
+            <span class="skill-pill">SQL</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <span class="skill-group-label">Technical</span>
+          <div class="skill-pills">
+            <span class="skill-pill">Adobe Target</span>
+            <span class="skill-pill">AEM</span>
+            <span class="skill-pill">GTM</span>
+            <span class="skill-pill">Server-Side Tagging</span>
+            <span class="skill-pill">API Integrations</span>
+            <span class="skill-pill">HTML</span>
+            <span class="skill-pill">WordPress</span>
+            <span class="skill-pill">Figma</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <span class="skill-group-label">Education</span>
+        <div class="edu-item">
+          <p class="edu-degree">M.S., Business Analytics</p>
+          <p class="edu-school">University of Nevada, Reno · 2022</p>
+          <p class="edu-detail">GPA 4.0</p>
+        </div>
+        <div class="edu-item">
+          <p class="edu-degree">B.S., Management</p>
+          <p class="edu-school">University of Nevada, Reno · 2014</p>
+          <p class="edu-detail">GPA 3.97</p>
+        </div>
+        <div class="edu-item">
+          <p class="edu-degree">A.A., Business</p>
+          <p class="edu-school">Cabrillo College · 2011</p>
+        </div>
+        <div style="margin-top: 2.5rem;">
+          <span class="skill-group-label">Certifications</span>
+          <div class="cert-list">
+            <div class="cert-item"><span class="cert-dot"></span>Contentsquare Certified · 2025</div>
+            <div class="cert-item"><span class="cert-dot"></span>ICAgile Certified Professional — Agility in Marketing · 2022</div>
+            <div class="cert-item"><span class="cert-dot"></span>SQL Essentials — LinkedIn Learning (In Progress · Apr 2026)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-inner">
+    <div class="contact-layout">
+      <div>
+        <div class="section-header">
+          <span class="eyebrow">Let's connect</span>
+          <h2 class="section-title">Get in Touch</h2>
+          <div class="section-rule"></div>
+        </div>
+        <p class="contact-intro">I'm actively exploring senior marketing roles — particularly in growth, lifecycle, web optimization, and CRM strategy at innovative companies. If you're building something great, I'd love to talk.</p>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:JessicaCarinJohnson@gmail.com" class="contact-link">
+          <span class="contact-link-label">Email</span>JessicaCarinJohnson@gmail.com
+        </a>
+        <a href="https://linkedin.com/in/jessicacarin" target="_blank" class="contact-link">
+          <span class="contact-link-label">LinkedIn</span>linkedin.com/in/jessicacarin
+        </a>
+        <a href="tel:7753844103" class="contact-link">
+          <span class="contact-link-label">Phone</span>(775) 384-4103
+        </a>
+        <div class="contact-link" style="cursor:default;">
+          <span class="contact-link-label">Location</span>Morgan Hill, CA (Bay Area)
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  &copy; 2026 Jessica C. Johnson &nbsp;&middot;&nbsp; Marketing Leader &nbsp;&middot;&nbsp; Morgan Hill, CA
+</footer>
+
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href === '#') return;
+      e.preventDefault();
+      const target = document.querySelector(href);
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+</script>
+</body>
+</html>
